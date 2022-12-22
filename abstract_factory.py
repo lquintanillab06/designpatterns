@@ -20,6 +20,7 @@ class Carton(ABC):
         pass
 
 
+
 class PapelAgua(Papel):
     def create_gramaje(self):
         print("Papel Agua Creado")
@@ -35,6 +36,16 @@ class PapelPonderosa(Papel):
 class CartonPonderosa(Carton):
     def create_calibre(self):
         print("Carton Ponderosa Creado")
+
+# 
+
+class PapelImpap(Papel):
+    def create_gramaje(self):
+        print("Papel Impap Creado")
+
+class CartonImpap(Carton):
+    def create_calibre(self):
+        print("Carton Impap Creado")
 
 
 class AbstractFactory(ABC):
@@ -61,6 +72,14 @@ class PonderosaFactory(AbstractFactory):
     def create_carton(self):
         return CartonPonderosa()
 
+#
+class ImpapFactory(AbstractFactory):
+    def create_papel(self):
+        return PapelImpap()
+
+    def create_carton(self):
+        return CartonImpap()
+
     
 def cliente(factory: AbstractFactory):
     papel = factory.create_papel()
@@ -78,3 +97,5 @@ if __name__ == "__main__":
     factory2 = PonderosaFactory()
     cliente(factory2)
 
+    factory3 = ImpapFactory()
+    cliente(factory3)
