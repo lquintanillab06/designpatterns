@@ -1,4 +1,12 @@
 from abc import ABC, abstractmethod
+"""
+    El patron simple factory se usa para crear instancias de objetos que comparten una interfaz,  se define una clase factory la
+    cual se va a encargar de instanciar el objeto segun se requiera por el cliente.
+    En el ejemplo se define una interfaz para Product y n clases concretas que implementan Product a las cuales les conocemos como
+    Concrete Product, despues se define una clase factory que se encargará de instanciar un Concrete Product determinado por un bloque
+    de condiciones de tipo. para este caso se puede usar enumeraciones para delimitar los tipos.
+    
+"""
 
 class DigitalCoinProcessor(ABC):
     @abstractmethod
