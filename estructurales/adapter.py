@@ -22,7 +22,7 @@ class ClienteModern():
 
 class ClienteAdapter():
 
-    def adapt(self,cliente):
+    def adapt(self,cliente: ClienteModern):
         return ClienteLegacy(int(cliente.data1), int(cliente.data2))
 
 

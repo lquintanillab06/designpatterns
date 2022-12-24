@@ -1,5 +1,13 @@
 from abc import ABC, abstractmethod
 
+"""
+    El patron Bridge una clase grande o un grupo de clases estrechamente ligadas en dos jerarquias (Abstraccion e Implementacion)
+    cabe recalcar que no hace referencia a los conceptos de POO se refiere a Jerarquias donde Abstraccion es el pivote que por medio 
+    de la composicion se le agregaran funciones por medio de las clases concretas de la Implementación.
+    Este patron nos evita el crecimiento exponencial, ya que si requerimos agregar una implementacion no es necesario crear una clase
+    que contenga todo solo es necesario agregar a la abstraccion la nueva implementacion
+"""
+
 
 class Implementation(ABC):
     @abstractmethod
@@ -7,10 +15,10 @@ class Implementation(ABC):
         pass
 
 class Abstraction():
-    def __init__(self, implementation: Implementation) -> None:
+    def __init__(self, implementation: Implementation):
             self.implementation = implementation
 
-    def operation(self) -> str:
+    def operation(self) :
         return (f"Abstraction: Base operation with:\n"
                 f"{self.implementation.operation_implementation()}")
 

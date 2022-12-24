@@ -23,7 +23,7 @@ class Legacy(LegacyInterface):
 
 class ModernAdapater(LegacyInterface):
 
-        def __init__(self, adapte):
+        def __init__(self, adapte: Modern):
             self.adapte = adapte
 
         def method_legacy(self):
