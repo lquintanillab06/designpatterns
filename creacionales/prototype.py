@@ -3,7 +3,8 @@ import copy
 
 """
     El patron prototype nos permite hacer copias o clones de objetos preconfigurados sin conocer su implementacion concreta.
-
+    en python ya existe el modulo copy que nos permite copiar objetos implementando los metodos __copy__ y __deepcopy__ en los 
+    cuales se debe realizar la copia de la instancia y reornarla.
 """
 
 class SomeComponent():

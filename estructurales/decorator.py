@@ -40,7 +40,8 @@ if __name__ == "__main__":
     deco = Decorator(prod)
     deco.method()
 
-    prod_deco = Producto()
+    prod_deco = ProductoDeco()
     deco2 = Decorator(prod_deco)
     deco2.method()
+
 
