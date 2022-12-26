@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 """
     El patron decorator no es lo mismo que la funcion decorador.
     Este patron hace uso de una interface que define la estructura para el Producto y el Decorador,
-    La funcion del decorador es agregar funcionanlidad a la clase decorada. pero debe tener la mis
+    La funcion del decorador es agregar funcionanlidad a la clase decorada. pero debe tener la misma interface
 """
 
 class Elemento(ABC):
