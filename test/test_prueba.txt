@@ -1,0 +1,4 @@
+
+>>> from prueba import calcular_impuesto
+>>> calcular_impuesto(100,16)
+16.0
