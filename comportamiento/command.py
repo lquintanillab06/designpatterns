@@ -30,20 +30,30 @@ class Bocina():
 
 
 class ControlInteligente():
+    # Invoker
 
     commands = {}
 
-    def add_command(self):
-        pass
+    def add_command(self,key, command):
+        self.commands[key] = command
+        
 
-    def get_command(self,command):
-        pass
+    def get_command(self,key):
+        command = self.commands.get(key)
+        if not command:
+            print("Comando no encontrado !!!")
+        return command
 
-    def remove_command(self):
-        pass
+    def remove_command(self, key):
+       del self.commands[key]
 
-    def execute_command(self,command):
-        pass
+    def execute_command(self,key):
+        #command = self.commands.get(key)
+        command = self.get_command(key)
+        if not command:
+            print("Comando no soportado !!!")
+            return
+        command.execute()
 
 
 
@@ -52,6 +62,7 @@ class Command(ABC):
     @abstractmethod
     def execute(self):
         pass
+
 
 class CommandLuzOn(Command):
     def __init__(self, luz):
@@ -80,5 +91,35 @@ class CommandBocinaDown(Command):
 
     def execute(self):
         self.bocina.down()
+
+
+if __name__ == "__main__":
+    print("Corriendo el demo de Command")
+
+    luz = Luz()
+    luz_on = CommandLuzOn(luz)
+    luz_off = CommandLuzOff(luz)
+    control = ControlInteligente()
+    control.add_command('luz_on',luz_on)
+    control.add_command('luz_off',luz_off)
+    print(control.commands)
+    control.execute_command('luz_on')
+    control.execute_command('luz_off')
+    bocina = Bocina()
+    bocina_up = CommandBocinaUp(bocina)
+    bocina_down = CommandBocinaDown(bocina)
+    control.add_command('bocina_up', bocina_up)
+    control.add_command('bocina_down', bocina_down)
+    print(control.commands)
+    control.execute_command('bocina_up')
+    control.execute_command('bocina_down')
+    control.remove_command('bocina_up')
+    control.remove_command('bocina_down')
+    print(control.commands)
+
+    control.execute_command('bocina_down')
+
+
+
         
         
