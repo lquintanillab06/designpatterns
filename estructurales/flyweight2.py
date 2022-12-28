@@ -19,16 +19,11 @@ class BulletGunFactory():
             self.bullets[self.get_key(state)] = BulletGunFW(state)
 
     def get_key(self, state):
-        """
-        Returns a Flyweight's string hash for a given state.
-        """
         return "_".join(sorted(state))
 
 
     def get_bullet(self, shared_state):
-        """
-            Returns an existing Flyweight with a given state or creates a new one.
-        """
+
 
         key = self.get_key(shared_state)
 

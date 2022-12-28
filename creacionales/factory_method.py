@@ -70,7 +70,7 @@ class RoadLogistics(Logistics):
         return Truck()
 
 class SeaLogistics(Logistics):
-    def create_transport(self) -> Transport:
+    def create_transport(self) :
         return Ship()
 
 ''' class AirLogistics(Logistics):
